@@ -9,6 +9,7 @@ player = {}
 player.size = 64
 player.posX = 128
 player.posY = 128
+player.speed = 200
 
 enemy = {}
 enemy.x = 512
@@ -59,6 +60,22 @@ function input_utilisateur(dt)
     -- verification entrée clavier
     if love.keyboard.isDown("escape") then
         love.event.quit()
+    end
+
+    if love.keyboard.isDown("up") then
+        player.posY = player.posY - player.speed * dt
+    end
+
+    if love.keyboard.isDown("down") then
+        player.posY = player.posY + player.speed * dt
+    end
+
+    if love.keyboard.isDown("left") then
+        player.posX= player.posX - player.speed * dt
+    end
+
+    if love.keyboard.isDown("right") then
+        player.posX = player.posX + player.speed * dt
     end
    
 end
