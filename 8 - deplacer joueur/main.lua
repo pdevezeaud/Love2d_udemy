@@ -62,6 +62,8 @@ function input_utilisateur(dt)
         love.event.quit()
     end
 
+    -- possibilité de rendre plus fluide en ajoutant un elseif et sans le end.
+
     if love.keyboard.isDown("up") then
         player.posY = player.posY - player.speed * dt
     end
