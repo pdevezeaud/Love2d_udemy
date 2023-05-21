@@ -3,6 +3,7 @@
 
 -- Police ecriture --
 font = love.graphics.newFont("assets/fonts/bebas.ttf",26)
+bg = love.graphics.newImage("assets/images/bg.png")
 
 --variables
 player = {}
@@ -20,35 +21,33 @@ score = 0
 -- Fonction Love2d
 
 function love.load() -- initialisation, ce charge au lancement
-    -- Pour avoir un random aléatoire
-    math.randomseed(os.time())
-   
-   
 
+    -- on affiche l'image à l'ecran
     
-
-
+    -- charge la police
+    love.graphics.setBackgroundColor(1,1,1)
+    
+    love.graphics.setFont(font)
+    
+    
 end
 
 
 function love.update(dt) -- tourne en boucle, x fois / seconde
     -- dt (delta time)
-
+    
     input_utilisateur(dt)
-  
+    
 end
 
 
 
 function love.draw() -- dessine ou affiche à l'ecran
+    love.graphics.draw(bg, 0,0,0,1,1)
     
     love.graphics.rectangle("fill",player.posX,player.posY,player.size,player.size)
-    
-    love.graphics.rectangle("line",enemy.x,enemy.y,player.size,player.size)
-    
-   
 
-   
+    love.graphics.rectangle("line",enemy.x,enemy.y,player.size,player.size)
     
 
 end
