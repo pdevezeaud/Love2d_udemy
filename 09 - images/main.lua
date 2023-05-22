@@ -11,10 +11,15 @@ player.size = 64
 player.posX = 128
 player.posY = 128
 player.speed = 200
+player.rotate = math.rad(0)
+player.img = love.graphics.newImage("assets/images/cow.png")
 
 enemy = {}
+enemy.size = 64
 enemy.x = 512
 enemy.y = 192
+enemy.rotate = math.rad(0)
+enemy.img = love.graphics.newImage("assets/images/rhino.png")
 
 score = 0
 
@@ -43,12 +48,14 @@ end
 
 
 function love.draw() -- dessine ou affiche à l'ecran
+    
     love.graphics.draw(bg, 0,0,0,1,1)
     
-    love.graphics.rectangle("fill",player.posX,player.posY,player.size,player.size)
-
-    love.graphics.rectangle("line",enemy.x,enemy.y,player.size,player.size)
-    
+   -- on dessine l'ennemi
+   love.graphics.draw(enemy.img,enemy.x,enemy.y,enemy.rotate,0.5,0.5,enemy.size /2,enemy.size / 2)
+    --on dessine le joueur
+    -- list des parametres image, position x et position y, rotation en rad, echelle en x et en y, offset en x, offset en y
+    love.graphics.draw(player.img,player.posX,player.posY,player.rotate,0.5,0.5,player.size /2,player.size / 2)
 
 end
 
